@@ -1,0 +1,137 @@
+/* ══════════════════════════
+   LOCK SCREEN — Design v2
+   ══════════════════════════ */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 40px 24px;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1B4332 0%, #1C1C1E 55%);
+  text-align: center;
+}
+
+/* ── Islamic geometric overlay ── */
+.container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpolygon points='24,8 56,8 72,24 72,56 56,72 24,72 8,56 8,24' fill='none' stroke='%23C9A84C' stroke-width='0.6'/%3E%3Cline x1='24' y1='8' x2='8' y2='24' stroke='%23C9A84C' stroke-width='0.4'/%3E%3Cline x1='56' y1='8' x2='72' y2='24' stroke='%23C9A84C' stroke-width='0.4'/%3E%3Cline x1='72' y1='56' x2='56' y2='72' stroke='%23C9A84C' stroke-width='0.4'/%3E%3Cline x1='8' y1='56' x2='24' y2='72' stroke='%23C9A84C' stroke-width='0.4'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  animation: patternRotate 120s linear infinite;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+/* ── Mosque SVG icon ── */
+.mosqueIcon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--gold-dim);
+  border: 0.5px solid var(--gold-border);
+  box-shadow: var(--gold-glow);
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+  animation: goldPulse 2s ease-in-out infinite;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  position: relative;
+  z-index: 1;
+}
+
+.titleAr {
+  font-family: 'Amiri', serif;
+  font-size: 28px;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+  max-width: 260px;
+}
+
+.timeContainer {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: 24px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: 0.5px solid var(--gold-border);
+  box-shadow: var(--gold-glow-sm), var(--shadow-elevated);
+  position: relative;
+  z-index: 1;
+  animation: borderPulse 3s ease-in-out infinite;
+}
+
+.timeLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.timeValue {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: linear-gradient(135deg, #FFFFFF 50%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.actionButton {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.actionButton a, .actionButton button {
+  width: 100%;
+}
+
+/* ── Ornamental glow spots ── */
+.ornament {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(27,67,50,0.4) 0%, transparent 70%);
+  top: -60px;
+  left: -60px;
+  pointer-events: none;
+}
+
+.ornament2 {
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+  top: auto;
+  left: auto;
+  bottom: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+}

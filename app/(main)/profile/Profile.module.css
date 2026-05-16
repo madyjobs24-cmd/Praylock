@@ -1,0 +1,154 @@
+/* ════════════════════════
+   PROFILE PAGE — Design v2
+   ════════════════════════ */
+.container {
+  padding: 24px 20px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeInUp 0.4s ease both;
+}
+
+/* ── Profile header ── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0 16px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1C1C1E;
+  flex-shrink: 0;
+  box-shadow: var(--gold-glow-sm);
+}
+
+.userInfo {
+  flex: 1;
+}
+
+.userName {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.userCity {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ── Card sections ── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.settingItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 0.5px solid rgba(255,255,255,0.06);
+}
+.settingItem:last-child {
+  border-bottom: none;
+}
+
+.settingLabel {
+  font-size: 15px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.settingValue {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ── Select ── */
+.select {
+  background: var(--bg-card-2);
+  color: var(--text-primary);
+  border: 0.5px solid rgba(255,255,255,0.1);
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  outline: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.select:focus {
+  border-color: var(--gold-border);
+}
+
+/* ── Auth form ── */
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input {
+  background: var(--bg-card-2);
+  border: 0.5px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 15px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.input::placeholder { color: var(--text-muted); }
+.input:focus { border-color: var(--gold-border); box-shadow: var(--gold-glow-sm); }
+
+.authButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.googleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* ── Sign out ── */
+.signOutButton {
+  width: 100%;
+  margin-top: 8px;
+  color: var(--status-red) !important;
+  border-color: rgba(255, 69, 58, 0.3) !important;
+}
+.signOutButton:hover {
+  background: rgba(255, 69, 58, 0.08) !important;
+}

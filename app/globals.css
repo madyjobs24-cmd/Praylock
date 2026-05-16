@@ -1,0 +1,131 @@
+/* ============================
+   PRAYLOCK — DESIGN SYSTEM v2
+   Apple Dark × Islamic Gold
+   ============================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  /* === BACKGROUNDS === */
+  --bg-base: #1C1C1E;           /* fond principal #1C1C1E */
+  --bg-card: #2C2C2E;           /* cartes Apple dark */
+  --bg-card-2: #3A3A3C;         /* cartes secondaires */
+  --bg-overlay: rgba(28,28,30,0.95);
+
+  /* === GOLDEN SIGNATURE === */
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dim: rgba(201, 168, 76, 0.15);
+  --gold-glow: 0 0 20px rgba(201, 168, 76, 0.35), 0 0 40px rgba(201, 168, 76, 0.15);
+  --gold-glow-sm: 0 0 10px rgba(201, 168, 76, 0.25);
+  --gold-border: rgba(201, 168, 76, 0.4);
+
+  /* === ISLAMIC GREEN (hero card) === */
+  --green-islamic: #1B4332;
+  --green-light: #2D6A4F;
+  --green-mid: #22543D;
+
+  /* === TYPOGRAPHY === */
+  --text-primary: #FFFFFF;
+  --text-secondary: #EBEBF5;
+  --text-muted: #8E8E93;
+  --text-disabled: #48484A;
+
+  /* === STATUS COLORS === */
+  --status-green: #30D158;
+  --status-orange: #FF9F0A;
+  --status-red: #FF453A;
+  --status-blue: #0A84FF;
+  --status-gray: #48484A;
+
+  /* === SURFACES (legacy compat) === */
+  --surface: #2C2C2E;
+  --surface-2: #3A3A3C;
+  --dark-bg: #1C1C1E;
+  --gold-light-alias: #E8C97A;
+
+  /* === SPACING === */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+
+  /* === RADIUS === */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* === ELEVATION / SHADOWS === */
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-elevated: 0 8px 24px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.25);
+}
+
+/* === RESET === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  background-color: var(--bg-base);
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-secondary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* === ARABIC FONT UTILITY === */
+.arabic {
+  font-family: 'Amiri', serif;
+  direction: rtl;
+  letter-spacing: 0;
+}
+
+/* === ISLAMIC GEOMETRIC PATTERN (global SVG background layer) === */
+@keyframes patternRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* === GOLDEN PULSE ANIMATION === */
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0); }
+  50%       { box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.2); }
+}
+
+/* === FADE IN === */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* === SHIMMER === */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* === BORDER PULSE (hero card) === */
+@keyframes borderPulse {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}

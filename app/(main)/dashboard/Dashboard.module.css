@@ -1,0 +1,588 @@
+/* ═══════════════════════════════════════
+   DASHBOARD — New Design System v2
+   Apple Dark × Islamic Gold
+   ═══════════════════════════════════════ */
+
+/* ── Entry Animation ── */
+.container {
+  padding: 24px 20px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 100%;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.container.mounted {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ══════════════════════════════
+   BANNER
+   ══════════════════════════════ */
+.banner {
+  background: rgba(201, 168, 76, 0.08);
+  border: 0.5px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeInUp 0.3s ease;
+}
+
+.bannerIcon {
+  color: var(--gold);
+}
+
+.bannerText {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.bannerActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.bannerClose {
+  background: transparent;
+  border: 0.5px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.bannerClose:hover { background: rgba(255,255,255,0.05); }
+
+.bannerAction {
+  background: var(--gold-dim);
+  border: 0.5px solid var(--gold-border);
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.bannerAction:hover { background: rgba(201, 168, 76, 0.22); }
+
+/* ══════════════════════════════
+   HEADER
+   ══════════════════════════════ */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.greeting {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-family: 'Amiri', serif;
+  letter-spacing: 0.02em;
+}
+
+.userName {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Streak Badge */
+.streakBadge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(201, 168, 76, 0.1);
+  border: 0.5px solid var(--gold-border);
+  border-radius: var(--radius-full);
+  padding: 6px 12px;
+  box-shadow: var(--gold-glow-sm);
+}
+
+.streakCount {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: -0.02em;
+}
+
+.streakLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Settings button */
+.settingsBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  box-shadow: var(--shadow-card);
+}
+.settingsBtn:hover {
+  color: var(--gold);
+  background: var(--bg-card-2);
+}
+
+/* ══════════════════════════════════════════════
+   HERO CARD — LA signature visuelle de PrayLock
+   ══════════════════════════════════════════════ */
+.heroCard {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-elevated);
+  /* Bordure dorée fine qui pulse */
+  border: 0.5px solid var(--gold-border);
+  animation: borderPulse 3s ease-in-out infinite;
+}
+
+/* Pattern géométrique islamique en overlay */
+.islamicPattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.025;
+  animation: patternRotate 120s linear infinite;
+  transform-origin: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Dégradé vertical vert islamique → noir */
+.heroGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(27, 67, 50, 0.85) 0%,
+    rgba(34, 84, 61, 0.5) 40%,
+    rgba(28, 28, 30, 0.0) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.heroTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heroLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(235, 235, 245, 0.6);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.heroStatus {
+  font-size: 11px;
+  color: var(--status-green);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.heroTimeRow {
+  margin-top: 4px;
+}
+
+.heroTime {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  /* Subtle gold shimmer on the big time */
+  background: linear-gradient(135deg, #FFFFFF 60%, #E8C97A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroNameRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.heroPrayerName {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.heroPrayerArabic {
+  font-family: 'Amiri', serif;
+  font-size: 26px;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.heroFooter {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heroCountdown {
+  font-size: 13px;
+  color: rgba(235, 235, 245, 0.55);
+  font-weight: 400;
+}
+
+.heroDayProgress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.heroDayProgressLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.heroDayProgressBar {
+  width: 64px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.heroDayProgressFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+  transition: width 0.6s ease;
+  box-shadow: 0 0 6px rgba(201, 168, 76, 0.6);
+}
+
+/* ══════════════════════════════
+   SECTION
+   ══════════════════════════════ */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+/* ══════════════════════════════
+   PRAYER TIMELINE
+   ══════════════════════════════ */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.prayerRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  cursor: default;
+  transition: background 0.2s, transform 0.15s;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.4s ease both;
+}
+
+/* Stagger animation for each row */
+.delay0 { animation-delay: 0.05s; }
+.delay1 { animation-delay: 0.1s; }
+.delay2 { animation-delay: 0.15s; }
+.delay3 { animation-delay: 0.2s; }
+.delay4 { animation-delay: 0.25s; }
+
+.prayerRow[role="button"]:hover {
+  background: var(--bg-card-2);
+  transform: translateY(-1px);
+}
+
+.prayerRow[role="button"]:active {
+  transform: translateY(0);
+}
+
+.prayerRowActive {
+  background: var(--bg-card-2);
+  box-shadow: var(--gold-glow-sm), var(--shadow-card);
+}
+
+/* Status bar (left accent) */
+.statusBar {
+  width: 3px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--status-gray);
+  flex-shrink: 0;
+}
+.statusBar_completed { background: var(--status-green); }
+.statusBar_active    { background: linear-gradient(180deg, var(--gold) 0%, var(--gold-light) 100%); box-shadow: 0 0 6px rgba(201,168,76,0.5); }
+.statusBar_late      { background: var(--status-orange); }
+.statusBar_missed    { background: var(--status-red); }
+.statusBar_upcoming  { background: var(--status-gray); }
+
+/* Prayer icon circle */
+.prayerIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.prayerIconActive {
+  background: var(--gold-dim);
+  color: var(--gold);
+  box-shadow: var(--gold-glow-sm);
+}
+
+/* Bilingual name */
+.prayerNames {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+
+.prayerNameFr {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.prayerNameAr {
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  direction: rtl;
+  line-height: 1.2;
+}
+
+/* Time */
+.prayerTimeWrap {
+  flex-shrink: 0;
+}
+
+.prayerTime {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Status badge */
+.prayerBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.06);
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.badge_completed {
+  background: rgba(48, 209, 88, 0.12);
+  color: var(--status-green);
+}
+
+.badge_active {
+  background: var(--gold-dim);
+  color: var(--gold);
+  box-shadow: var(--gold-glow-sm);
+  animation: goldPulse 2s ease infinite;
+}
+
+.badge_late {
+  background: rgba(255, 159, 10, 0.12);
+  color: var(--status-orange);
+}
+
+.badge_missed {
+  background: rgba(255, 69, 58, 0.12);
+  color: var(--status-red);
+}
+
+.badge_upcoming {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+}
+
+/* ══════════════════════════════
+   MODAL CONFIRMATION
+   ══════════════════════════════ */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 200;
+  padding: 20px;
+  animation: fadeInUp 0.25s ease;
+}
+
+.modal {
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl) var(--radius-xl) var(--radius-lg) var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--shadow-elevated), 0 0 0 0.5px rgba(255,255,255,0.06);
+  animation: fadeInUp 0.3s ease;
+}
+
+.modalIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gold-dim);
+  border: 0.5px solid var(--gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  box-shadow: var(--gold-glow-sm);
+}
+
+.modalTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  letter-spacing: -0.02em;
+}
+
+.modalArabic {
+  font-family: 'Amiri', serif;
+  font-size: 24px;
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.modalQuestion {
+  font-size: 16px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.modalBtnSecondary {
+  flex: 1;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card-2);
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.modalBtnSecondary:hover { background: rgba(58, 58, 60, 0.8); }
+
+.modalBtnPrimary {
+  flex: 1.5;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1C1C1E;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  box-shadow: var(--gold-glow-sm);
+  letter-spacing: -0.01em;
+}
+.modalBtnPrimary:hover  { opacity: 0.9; }
+.modalBtnPrimary:active { transform: scale(0.98); }

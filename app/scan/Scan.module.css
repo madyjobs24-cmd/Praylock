@@ -1,0 +1,115 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  position: relative;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.cameraView {
+  flex: 1;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  margin: 12px;
+  border-radius: var(--radius-xl);
+}
+
+.cameraPlaceholder {
+  color: var(--text-muted);
+  font-size: 14px;
+  text-align: center;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  margin: 40px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.overlayCorners {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-color: var(--gold);
+  border-style: solid;
+  box-shadow: var(--gold-glow-sm);
+}
+
+.topLeft { top: 0; left: 0; border-width: 3px 0 0 3px; border-top-left-radius: 20px; }
+.topRight { top: 0; right: 0; border-width: 3px 3px 0 0; border-top-right-radius: 20px; }
+.bottomLeft { bottom: 0; left: 0; border-width: 0 0 3px 3px; border-bottom-left-radius: 20px; }
+.bottomRight { bottom: 0; right: 0; border-width: 0 3px 3px 0; border-bottom-right-radius: 20px; }
+
+/* ── Scanning Line ── */
+.scanLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  box-shadow: 0 0 15px var(--gold);
+  animation: scanMove 3s linear infinite;
+  z-index: 3;
+}
+
+@keyframes scanMove {
+  0% { transform: translateY(40px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(calc(100vh - 280px)); opacity: 0; }
+}
+
+.controls {
+  padding: 32px 24px;
+  background-color: var(--bg-card);
+  text-align: center;
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.scanBtn {
+  flex: 2;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1C1C1E;
+  cursor: pointer;
+  box-shadow: var(--gold-glow-sm);
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.scanBtn:active { transform: scale(0.98); }
+.scanBtn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.cancelBtn {
+  flex: 1;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card-2);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
