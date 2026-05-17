@@ -1,0 +1,24 @@
+{
+  "name": "PrayLock",
+  "short_name": "PrayLock",
+  "description": "Never miss prayer time again. Secure your focus, protect your prayers.",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#d4af37",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
