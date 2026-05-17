@@ -132,15 +132,15 @@ export default function DashboardPage() {
   }, []);
 
   useEffect(() => {
-    if (user.preferences.reminderFrequency === 'manuel' || !user.lastUpdatedTimes) {
+    if (user.preferences.reminderFrequency === 'manual' || !user.lastUpdatedTimes) {
       setShowBanner(false);
       return;
     }
     const lastUpdated  = new Date(user.lastUpdatedTimes);
     const currentDate  = now || new Date();
     const diffDays     = (currentDate.getTime() - lastUpdated.getTime()) / (1000 * 60 * 60 * 24);
-    if (user.preferences.reminderFrequency === 'hebdomadaire' && diffDays > 7)  setShowBanner(true);
-    else if (user.preferences.reminderFrequency === 'mensuel' && diffDays > 30) setShowBanner(true);
+    if (user.preferences.reminderFrequency === 'weekly' && diffDays > 7)  setShowBanner(true);
+    else if (user.preferences.reminderFrequency === 'monthly' && diffDays > 30) setShowBanner(true);
     else setShowBanner(false);
   }, [user, now]);
 

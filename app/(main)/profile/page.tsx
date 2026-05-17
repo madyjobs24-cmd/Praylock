@@ -86,9 +86,9 @@ export default function ProfilePage() {
               value={user.preferences.reminderFrequency}
               onChange={handleReminderChange}
             >
-              <option value="hebdomadaire">Hebdomadaire</option>
-              <option value="mensuel">Mensuel</option>
-              <option value="manuel">Manuel</option>
+              <option value="weekly">Hebdomadaire</option>
+              <option value="monthly">Mensuel</option>
+              <option value="manual">Manuel</option>
             </select>
           </div>
 
