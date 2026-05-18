@@ -6,7 +6,11 @@ export const createClient = async () => {
 
   const sanitize = (str: string | undefined) => {
     if (!str) return '';
-    return str.trim().replace(/^['"]|['"]$/g, '');
+    const cleaned = str.trim().replace(/^['"]|['"]$/g, '').trim();
+    if (cleaned === 'undefined' || cleaned === 'null' || cleaned === '') {
+      return '';
+    }
+    return cleaned;
   };
 
   const supabaseUrl = sanitize(process.env.NEXT_PUBLIC_SUPABASE_URL) || 'https://nsimbewmydjlsnmlivft.supabase.co';

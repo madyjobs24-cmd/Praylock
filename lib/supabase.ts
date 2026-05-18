@@ -2,7 +2,11 @@ import { createClient } from '@supabase/supabase-js';
 
 const sanitize = (str: string | undefined) => {
   if (!str) return '';
-  return str.trim().replace(/^['"]|['"]$/g, '');
+  const cleaned = str.trim().replace(/^['"]|['"]$/g, '').trim();
+  if (cleaned === 'undefined' || cleaned === 'null' || cleaned === '') {
+    return '';
+  }
+  return cleaned;
 };
 
 const rawUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
