@@ -19,6 +19,7 @@
   --gold-glow: 0 0 20px rgba(201, 168, 76, 0.35), 0 0 40px rgba(201, 168, 76, 0.15);
   --gold-glow-sm: 0 0 10px rgba(201, 168, 76, 0.25);
   --gold-border: rgba(201, 168, 76, 0.4);
+  --gold-gradient: linear-gradient(135deg, #C9A84C 0%, #E8C97A 100%);
 
   /* === ISLAMIC GREEN (hero card) === */
   --green-islamic: #1B4332;
