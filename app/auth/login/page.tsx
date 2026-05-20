@@ -79,6 +79,20 @@ export default function LoginPage() {
           />
         </div>
 
+        <div style={{ textAlign: 'right', marginTop: -8 }}>
+          <Link 
+            href="/auth/forgot-password" 
+            style={{ 
+              color: 'var(--gold)', 
+              fontSize: 13, 
+              fontWeight: 600, 
+              textDecoration: 'none' 
+            }}
+          >
+            Mot de passe oublié ?
+          </Link>
+        </div>
+
         <button type="submit" disabled={loading} className={styles.submitBtn}>
           {loading ? 'Connexion en cours...' : 'Se connecter'}
         </button>
