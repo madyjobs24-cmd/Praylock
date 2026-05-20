@@ -27,7 +27,8 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const trimmedEmail = email.trim();
+      const { error } = await supabase.auth.signInWithPassword({ email: trimmedEmail, password });
       if (error) throw error;
       router.push('/dashboard');
     } catch (error: any) {

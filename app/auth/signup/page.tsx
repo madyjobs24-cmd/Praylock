@@ -27,10 +27,17 @@ export default function SignupPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      const { error } = await supabase.auth.signUp({ email, password });
+      const trimmedEmail = email.trim();
+      const { data, error } = await supabase.auth.signUp({ email: trimmedEmail, password });
       if (error) throw error;
-      alert('Vérifiez votre email pour confirmer l\'inscription !');
-      router.push('/auth/login');
+
+      if (data?.session) {
+        alert('Inscription réussie ! Connexion automatique en cours...');
+        router.push('/dashboard');
+      } else {
+        alert('Inscription réussie ! Veuillez vérifier votre email pour confirmer votre compte avant de vous connecter.');
+        router.push('/auth/login');
+      }
     } catch (error: any) {
       alert(error.message);
     } finally {
