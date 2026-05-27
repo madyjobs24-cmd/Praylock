@@ -30,7 +30,7 @@ export default function LoginPage() {
       const trimmedEmail = email.trim();
       const { error } = await supabase.auth.signInWithPassword({ email: trimmedEmail, password });
       if (error) throw error;
-      router.push('/dashboard');
+      window.location.href = '/dashboard';
     } catch (error: any) {
       alert(error.message);
     } finally {

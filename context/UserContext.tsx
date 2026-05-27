@@ -152,7 +152,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
     setUser(newUser);
 
     if (supabaseUser) {
-      await supabase.from('users').update({
+      const { error } = await supabase.from('users').update({
         name: newUser.name,
         city: newUser.city,
         streak_count: newUser.streakCount,
@@ -161,6 +161,10 @@ export function UserProvider({ children }: { children: ReactNode }) {
         onboarding_completed: newUser.onboardingCompleted,
         blocked_apps: newUser.blockedApps,
       }).eq('id', supabaseUser.id);
+      
+      if (error) {
+        console.error('Error updating user in Supabase:', error);
+      }
     }
   };
 

@@ -33,7 +33,7 @@ export default function OnboardingPage() {
         blockedApps: blockedApps,
         onboardingCompleted: true,
       });
-      router.push('/dashboard');
+      window.location.href = '/dashboard';
     }
   };
 
